@@ -16,13 +16,11 @@ def send(file_name):
         flag = 'T'
 
     connection.recv(1)  # wait for ack
-    print("ack recieved 1")
 
     bytessent = connection.send(flag.encode('UTF-8'))  # Notifys of binary v text
     print('sent flag # bytes send ', bytessent)
 
     response = connection.recv(1).decode('UTF-8')
-    print('response recieved')
     if response == 'K':
         file = open(file_name, 'rb')  # opens file and reads it in byte form
         buffer = file.read(2048)  # read 2048 bytes from file to buffer
@@ -32,7 +30,7 @@ def send(file_name):
             print("sending......")
         file.close()
         connection.send('EOF\n'.encode('UTF-8'))  # notify that end of file has been reached
-    response = connection.recv(1)
+    response = connection.recv(1).decode('UTF-8')
     if response == 'K':
         print('File uploaded successfully')
 
