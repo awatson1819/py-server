@@ -1,20 +1,40 @@
 import socket
 import sys
 import select
+from binaryornot.check import is_binary
 
 
 def send(file_name):
+    connection.send('send\n'.encode('UTF-8'))  # alert client
+    print('sent')
     i = file_name.rfind('/')  # find index of last / in file destination
-    connection.send('send'.encode('UTF-8'))  # alert client
-    connection.send(file_name[i+1:])  # send filename without the destination
+    connection.send(file_name[i+1:].encode('UTF-8'))  # send filename without the destination
+    # checks if file is a binary file or not
+    if is_binary(file_name):
+        flag = 'B'
+    else:
+        flag = 'T'
 
-    file = open(file_name, 'rb')  # opens file and reads it in byte form
-    buffer = file.read(2048)  # read 2048 bytes from file to buffer
-    while buffer:
-        connection.send(buffer)
-        buffer = file.read(2048)  # read next 2048 bytes
-    file.close()
-    connection.send('EOF'.encode('UTF-8'))  # notify that end of file has been reached
+    connection.recv(1)  # wait for ack
+    print("ack recieved 1")
+
+    bytessent = connection.send(flag.encode('UTF-8'))  # Notifys of binary v text
+    print('sent flag # bytes send ', bytessent)
+
+    response = connection.recv(1).decode('UTF-8')
+    print('response recieved')
+    if response == 'K':
+        file = open(file_name, 'rb')  # opens file and reads it in byte form
+        buffer = file.read(2048)  # read 2048 bytes from file to buffer
+        while buffer:
+            connection.send(buffer)
+            buffer = file.read(2048)  # read next 2048 bytes
+            print("sending......")
+        file.close()
+        connection.send('EOF\n'.encode('UTF-8'))  # notify that end of file has been reached
+    response = connection.recv(1)
+    if response == 'K':
+        print('File uploaded successfully')
 
 
 # socket initialize
@@ -41,7 +61,7 @@ while True:
                 msg = sys.stdin.readline()
                 if msg:
                     if msg.find('upload') == 0:
-                        send(msg[5:])
+                        send(msg[7:].replace('\n', ''))
                     elif msg == 'close\n':
                         connection.close()
                         exit()
