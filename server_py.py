@@ -1,37 +1,31 @@
 import socket
 import sys
 import select
-from binaryornot.check import is_binary
+import os
 
-kk
+
 def send(file_name):
-    connection.send('send\n'.encode('UTF-8'))  # alert client
+    connection.sendall('send\n'.encode('UTF-8'))  # alert client
     print('sent')
     i = file_name.rfind('/')  # find index of last / in file destination
-    connection.send(file_name[i+1:].encode('UTF-8'))  # send filename without the destination
-    # checks if file is a binary file or not
-    if is_binary(file_name):
-        flag = 'B'
-    else:
-        flag = 'T'
-
+    connection.sendall(file_name[i+1:].encode('UTF-8'))  # send filename without the destination
     connection.recv(1)  # wait for ack
 
-    bytessent = connection.send(flag.encode('UTF-8'))  # Notifys of binary v text
-    print('sent flag # bytes send ', bytessent)
-
-    response = connection.recv(1).decode('UTF-8')
+    totalbytes = os.path.getsize(file_name)
+    connection.sendall(str(totalbytes).encode('UTF-8'))
+    response = connection.recv(1).decode('UTF-8')  # wait for ack
+    print("past byte send")
     if response == 'K':
+        print("into if")
         file = open(file_name, 'rb')  # opens file and reads it in byte form
         buffer = file.read(2048)  # read 2048 bytes from file to buffer
         while buffer:
-            connection.send(buffer)
+            connection.sendall(buffer)
             buffer = file.read(2048)  # read next 2048 bytes
             print("sending......", buffer)
         print("out of while")
         file.close()
-        connection.send('EOF\n'.encode('UTF-8'))  # notify that end of file has been reached
-        print("sent EOF")
+        print("EOF")
     response = connection.recv(1).decode('UTF-8')
     print("recv resp")
     if response == 'K':

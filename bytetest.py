@@ -16,4 +16,8 @@ print(fileContent)
 with open('test.txt', 'rb') as file:
     fileContent = file.read()
 print(fileContent)
-print(os.path.getsize('test.txt'))
+print(os.path.getsize('testlarge.txt'))
+
+buffer = "hello"
+missing = 20 - buffer.sizeof()
+buffer += []

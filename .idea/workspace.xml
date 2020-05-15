@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1681b3f-db2f-44ea-8aaf-201ac77d06c8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/diff.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testlarge.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bytetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/bytetest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_py.py" afterDir="false" />
@@ -36,7 +38,13 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="bytetest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -80,22 +88,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1052" height="141" key="GridCell.Tab.0.bottom" timestamp="1589504154552">
+    <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589506535818">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="1052" height="141" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1589504154552" />
-    <state width="1052" height="141" key="GridCell.Tab.0.center" timestamp="1589504154552">
+    <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.733@0.23.1280.733" timestamp="1589506535818" />
+    <state width="752" height="141" key="GridCell.Tab.0.bottom" timestamp="1589512697459">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="1052" height="141" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1589504154552" />
-    <state width="1052" height="141" key="GridCell.Tab.0.left" timestamp="1589504154552">
+    <state width="752" height="141" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1589512697459" />
+    <state width="752" height="141" key="GridCell.Tab.0.center" timestamp="1589512697458">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="1052" height="141" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1589504154552" />
-    <state width="1052" height="141" key="GridCell.Tab.0.right" timestamp="1589504154552">
+    <state width="752" height="141" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1589512697458" />
+    <state width="752" height="141" key="GridCell.Tab.0.left" timestamp="1589512697458">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="1052" height="141" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1589504154552" />
+    <state width="752" height="141" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1589512697458" />
+    <state width="752" height="141" key="GridCell.Tab.0.right" timestamp="1589512697459">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state width="752" height="141" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1589512697459" />
     <state x="424" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1589481287670">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
