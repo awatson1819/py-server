@@ -1,14 +1,19 @@
 import binascii
 from binaryornot.check import is_binary
+import os
 # Open in binary mode (so you don't read two byte line endings on Windows as one byte)
 # and use with statement (always do this to avoid leaked file descriptors, unflushed files)
-with open('test.txt', 'rb') as f:
+with open('output', 'rb') as f:
     # Slurp the whole file and efficiently convert it to hex all at once
     hexdata = binascii.hexlify(f.read())
     print(hexdata)
 
-print(is_binary('/Users/aidenw/Desktop/Malware/Trailmalware/Trailmalware/reverseshell'))
+print(is_binary('output'))
 
-with open('/Users/aidenw/Desktop/Malware/Trailmalware/Trailmalware/reverseshell', 'rb') as file:
+with open('output', 'rb') as file:
     fileContent = file.read()
 print(fileContent)
+with open('test.txt', 'rb') as file:
+    fileContent = file.read()
+print(fileContent)
+print(os.path.getsize('test.txt'))

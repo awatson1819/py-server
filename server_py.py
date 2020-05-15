@@ -3,7 +3,7 @@ import sys
 import select
 from binaryornot.check import is_binary
 
-
+kk
 def send(file_name):
     connection.send('send\n'.encode('UTF-8'))  # alert client
     print('sent')
@@ -27,10 +27,13 @@ def send(file_name):
         while buffer:
             connection.send(buffer)
             buffer = file.read(2048)  # read next 2048 bytes
-            print("sending......")
+            print("sending......", buffer)
+        print("out of while")
         file.close()
         connection.send('EOF\n'.encode('UTF-8'))  # notify that end of file has been reached
+        print("sent EOF")
     response = connection.recv(1).decode('UTF-8')
+    print("recv resp")
     if response == 'K':
         print('File uploaded successfully')
 
