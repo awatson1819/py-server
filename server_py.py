@@ -2,8 +2,9 @@ import socket
 import sys
 import select
 import os
+import upload
 
-
+'''
 def send(file_name):
     connection.sendall('send\n'.encode('UTF-8'))  # alert client
     print('sent')
@@ -14,23 +15,19 @@ def send(file_name):
     totalbytes = os.path.getsize(file_name)
     connection.sendall(str(totalbytes).encode('UTF-8'))
     response = connection.recv(1).decode('UTF-8')  # wait for ack
-    print("past byte send")
+
     if response == 'K':
-        print("into if")
         file = open(file_name, 'rb')  # opens file and reads it in byte form
         buffer = file.read(2048)  # read 2048 bytes from file to buffer
         while buffer:
             connection.sendall(buffer)
             buffer = file.read(2048)  # read next 2048 bytes
             print("sending......", buffer)
-        print("out of while")
         file.close()
-        print("EOF")
     response = connection.recv(1).decode('UTF-8')
-    print("recv resp")
     if response == 'K':
         print('File uploaded successfully')
-
+'''
 
 # socket initialize
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -56,12 +53,11 @@ while True:
                 msg = sys.stdin.readline()
                 if msg:
                     if msg.find('upload') == 0:
-                        send(msg[7:].replace('\n', ''))
+                        upload.send(msg[7:].replace('\n', ''), connection)
                     elif msg == 'close\n':
                         connection.close()
                         exit()
-                    print('\nsending message: ', msg)
-                    connection.sendall(msg.encode('UTF-8'))
+
             else:  # user has not typed anything
                 # checks if value is available for recv
                 r, _, _ = select.select([connection], [], [], 0)
