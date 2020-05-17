@@ -1,4 +1,7 @@
-def send(file_name, connection):
+import os
+
+
+def send(file_name, connection):  # send files to client
     connection.sendall('send\n'.encode('UTF-8'))  # alert client
     print('sent')
     i = file_name.rfind('/')  # find index of last / in file destination
@@ -20,4 +23,22 @@ def send(file_name, connection):
     response = connection.recv(1).decode('UTF-8')
     if response == 'K':
         print('File uploaded successfully')
+
+
+def download(file_path, connection):  # upload files from client to server
+    #  figures out file name in windows path
+    file_name = (file_path[file_path.rfind('\\')+1:])
+
+    connection.sendall('download\n'.encode('UTF-8'))
+
+    connection.sendall(file_path.encode('UTF-8'))  # alert client to wanted file
+    response = connection.recv(1).decode('UTF-8')  # wait for client ack
+
+    # correct ack if file found
+    if response == 'K':
+        file_size = connection.recv(8).decode('UTF-8')
+        print('file size: ', file_size)
+
+
+
 
