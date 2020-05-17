@@ -39,9 +39,8 @@ def download(file_path, connection):  # upload files from client to server
     # correct ack if file found
     if response == 'K':
         str_size = connection.recv(10).decode('UTF-8')  # file size sent by client
-        print(str_size)
+        # remove any extra /0 from C send value and turns to int
         size = int(str_size[:str_size.find('\x00')])
-        # remove any extra /0 from C and turns to int
 
         print('file size: ', size)
 
