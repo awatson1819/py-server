@@ -2,6 +2,8 @@
   <dictionary name="aidenw">
     <words>
       <w>addr</w>
+      <w>recv</w>
+      <w>tmpbuff</w>
     </words>
   </dictionary>
 </component>

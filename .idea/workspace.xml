@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1681b3f-db2f-44ea-8aaf-201ac77d06c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/aidenw.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/aidenw.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bytetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/bytetest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trail.exe" beforeDir="false" afterPath="$PROJECT_DIR$/trail.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/upload.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,10 +108,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589506535818">
+    <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589689173539">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.733@0.23.1280.733" timestamp="1589506535818" />
+    <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.733@0.23.1280.733" timestamp="1589689173539" />
     <state width="987" height="137" key="GridCell.Tab.0.bottom" timestamp="1589686071829">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
