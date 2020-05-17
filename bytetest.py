@@ -1,6 +1,13 @@
 import binascii
 from binaryornot.check import is_binary
 import os
+
+print(len("hello"))
+s = '5\x00\x00'
+print(len(s))
+print(s.find('\x00'))
+
+'''
 # Open in binary mode (so you don't read two byte line endings on Windows as one byte)
 # and use with statement (always do this to avoid leaked file descriptors, unflushed files)
 with open('output', 'rb') as f:
@@ -21,3 +28,4 @@ print(os.path.getsize('testlarge.txt'))
 buffer = "hello"
 missing = 20 - buffer.sizeof()
 buffer += []
+'''
