@@ -42,6 +42,7 @@ while True:
                 if msg.find('upload') == 0:
                     upload.send(msg[7:].replace('\n', ''), connection)
                 elif msg == 'close\n':
+                    connection.sendall('conend'.encode('UTF-8'))
                     connection.close()
                     exit()
                 elif msg.find('download') == 0:
