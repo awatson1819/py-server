@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1681b3f-db2f-44ea-8aaf-201ac77d06c8" name="Default Changelist" comment="" />
+    <list default="true" id="c1681b3f-db2f-44ea-8aaf-201ac77d06c8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/encryption.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/encyrptiontest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_py.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/upload.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +45,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.encyrptiontest">
     <configuration name="bytetest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -61,8 +67,52 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="encryption" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/encryption.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="encyrptiontest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/encyrptiontest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.encyrptiontest" />
+        <item itemvalue="Python.encryption" />
         <item itemvalue="Python.bytetest" />
       </list>
     </recent_temporary>
@@ -104,30 +154,34 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="163" y="39" width="800" height="717" key="#Intentions" timestamp="1589939793878">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state x="163" y="39" width="800" height="717" key="#Intentions/0.23.1280.733@0.23.1280.733" timestamp="1589939793878" />
     <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589689510346">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
     <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.733@0.23.1280.733" timestamp="1589689510346" />
-    <state width="987" height="137" key="GridCell.Tab.0.bottom" timestamp="1589689633663">
+    <state width="987" height="137" key="GridCell.Tab.0.bottom" timestamp="1589949320921">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1589689633663" />
-    <state width="987" height="137" key="GridCell.Tab.0.center" timestamp="1589689633662">
+    <state width="987" height="137" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1589949320921" />
+    <state width="987" height="137" key="GridCell.Tab.0.center" timestamp="1589949320920">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1589689633662" />
-    <state width="987" height="137" key="GridCell.Tab.0.left" timestamp="1589689633661">
+    <state width="987" height="137" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1589949320920" />
+    <state width="987" height="137" key="GridCell.Tab.0.left" timestamp="1589949320919">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1589689633661" />
-    <state width="987" height="137" key="GridCell.Tab.0.right" timestamp="1589689633662">
+    <state width="987" height="137" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1589949320919" />
+    <state width="987" height="137" key="GridCell.Tab.0.right" timestamp="1589949320920">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1589689633662" />
-    <state x="424" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1589750249770">
+    <state width="987" height="137" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1589949320920" />
+    <state x="424" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1589936223401">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state x="424" y="184" key="com.intellij.ide.util.TipDialog/0.23.1280.733@0.23.1280.733" timestamp="1589750249770" />
+    <state x="424" y="184" key="com.intellij.ide.util.TipDialog/0.23.1280.733@0.23.1280.733" timestamp="1589936223401" />
     <state x="373" y="80" width="670" height="676" key="search.everywhere.popup" timestamp="1589750800653">
       <screen x="0" y="23" width="1280" height="733" />
     </state>

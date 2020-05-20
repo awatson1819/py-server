@@ -1,7 +1,7 @@
 import os
 from _socket import MSG_WAITALL
 
-DEFAULT_BUFF = 2048
+DEFAULT_BUFF = 2048  # goto buffer size
 
 
 def send(file_name, connection):  # send files to client
