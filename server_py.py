@@ -3,6 +3,7 @@ import sys
 import select
 import upload
 
+
 def shell():
     connection.sendall('shell\n'.encode('UTF-8'))
     while True:

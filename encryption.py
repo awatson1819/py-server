@@ -1,34 +1,20 @@
-from __future__ import print_function, unicode_literals
-from os import urandom
+import secrets
+
+from Crypto.Cipher import AES
 
 
-def genkey() -> bytes:
-    """Generate key."""
-    return urandom(256)
+num = secrets.token_bytes(32)
+iv = secrets.token_bytes(16)
+print(num)
+print(iv)
+file = open("key.key", "wb")
+file.write(num)
+aes = AES.new(num, AES.MODE_CBC, iv)
+data = 'hello world 1234' # <- 16 bytes
+encd = aes.encrypt(data)
 
+print("encrypted = ", encd)
 
-def xor_strings(s, t) -> bytes:
-    """xor two strings together."""
-    if isinstance(s, str):
-        # Text strings contain single characters
-        return b"".join(chr(ord(a) ^ ord(b)) for a, b in zip(s, t))
-    else:
-        # Python 3 bytes objects contain integer values in the range 0-255
-        return bytes([a ^ b for a, b in zip(s, t)])
-
-
-message = 'TT This is a secret message'
-print('Message:', message)
-
-key = genkey()
-print('Key:', key)
-
-cipherText = xor_strings(message.encode('utf8'), key)
-print('cipherText:', cipherText)
-print('decrypted:', xor_strings(cipherText, key).decode('utf8'))
-
-# Verify
-if xor_strings(cipherText, key).decode('utf8') == message:
-    print('Unit test passed')
-else:
-    print('Unit test failed')
+aes = AES.new(num, AES.MODE_CBC, iv)
+decd = aes.decrypt(encd)
+print("decryped = ", decd)
