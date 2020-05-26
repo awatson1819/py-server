@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/encryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/encryption.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_py.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/upload.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,29 +187,77 @@
       <screen x="0" y="23" width="1280" height="733" />
     </state>
     <state x="506" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.733@0.23.1280.733" timestamp="1590284387326" />
-    <state width="987" height="137" key="GridCell.Tab.0.bottom" timestamp="1590284583357">
+    <state x="159" y="187" width="808" height="395" key="DiffContextDialog" timestamp="1590468967929">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1590284583357" />
-    <state width="987" height="137" key="GridCell.Tab.0.center" timestamp="1590284583356">
+    <state x="159" y="187" width="808" height="395" key="DiffContextDialog/0.23.1280.733@0.23.1280.733" timestamp="1590468967929" />
+    <state width="987" height="172" key="GridCell.Tab.0.bottom" timestamp="1590519397493">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1590284583356" />
-    <state width="987" height="137" key="GridCell.Tab.0.left" timestamp="1590284583355">
+    <state width="987" height="172" key="GridCell.Tab.0.bottom/0.23.1280.733@0.23.1280.733" timestamp="1590519397493" />
+    <state width="987" height="172" key="GridCell.Tab.0.center" timestamp="1590519397493">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1590284583355" />
-    <state width="987" height="137" key="GridCell.Tab.0.right" timestamp="1590284583356">
+    <state width="987" height="172" key="GridCell.Tab.0.center/0.23.1280.733@0.23.1280.733" timestamp="1590519397493" />
+    <state width="987" height="172" key="GridCell.Tab.0.left" timestamp="1590519397492">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state width="987" height="137" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1590284583356" />
-    <state x="424" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1590261295100">
+    <state width="987" height="172" key="GridCell.Tab.0.left/0.23.1280.733@0.23.1280.733" timestamp="1590519397492" />
+    <state width="987" height="172" key="GridCell.Tab.0.right" timestamp="1590519397493">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
-    <state x="424" y="184" key="com.intellij.ide.util.TipDialog/0.23.1280.733@0.23.1280.733" timestamp="1590261295100" />
+    <state width="987" height="172" key="GridCell.Tab.0.right/0.23.1280.733@0.23.1280.733" timestamp="1590519397493" />
+    <state width="987" height="172" key="GridCell.Tab.1.bottom" timestamp="1590519397494">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state width="987" height="172" key="GridCell.Tab.1.bottom/0.23.1280.733@0.23.1280.733" timestamp="1590519397494" />
+    <state width="987" height="172" key="GridCell.Tab.1.center" timestamp="1590519397494">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state width="987" height="172" key="GridCell.Tab.1.center/0.23.1280.733@0.23.1280.733" timestamp="1590519397494" />
+    <state width="987" height="172" key="GridCell.Tab.1.left" timestamp="1590519397494">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state width="987" height="172" key="GridCell.Tab.1.left/0.23.1280.733@0.23.1280.733" timestamp="1590519397494" />
+    <state width="987" height="172" key="GridCell.Tab.1.right" timestamp="1590519397494">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state width="987" height="172" key="GridCell.Tab.1.right/0.23.1280.733@0.23.1280.733" timestamp="1590519397494" />
+    <state x="424" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1590510067139">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state x="424" y="184" key="com.intellij.ide.util.TipDialog/0.23.1280.733@0.23.1280.733" timestamp="1590510067139" />
+    <state x="187" y="123" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1590516763850">
+      <screen x="0" y="23" width="1280" height="733" />
+    </state>
+    <state x="187" y="123" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1280.733@0.23.1280.733" timestamp="1590516763850" />
     <state x="373" y="80" width="670" height="676" key="search.everywhere.popup" timestamp="1589750800653">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
     <state x="373" y="80" width="670" height="676" key="search.everywhere.popup/0.23.1280.733@0.23.1280.733" timestamp="1589750800653" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/encryption.py</url>
+          <line>93</line>
+          <option name="temporary" value="true" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/encryption.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
