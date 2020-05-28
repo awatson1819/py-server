@@ -35,7 +35,7 @@ def ping():
 
 def encrypter(plaintext):
     aes = AES.new(key, AES.MODE_CBC, iv)
-    return aes.encrypt(pad(plaintext.encode(), AES.block_size))
+    return aes.encrypt(pad(plaintext, AES.block_size))
 
 
 def decrypter(ciphertext):

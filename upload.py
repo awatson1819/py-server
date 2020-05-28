@@ -6,24 +6,24 @@ DEFAULT_BUFF = 128  # goto buffer size
 
 
 def send(file_name, connection):  # send files to client
-    connection.sendall(encrypter('send\n'.encode('UTF-8')))  # alert client
+    connection.sendall(encrypter('send\n'.encode()))  # alert client
     print('sent')
     i = file_name.rfind('/')  # find index of last / in file destination
-    connection.sendall(encrypter(file_name[i + 1:].encode('UTF-8')))  # send filename without the destination
-    connection.recv(1)  # wait for ack
+    connection.sendall(encrypter(file_name[i + 1:].encode()))  # send filename without the destination
+    ack = connection.recv(1)  # recive acknowledge
 
     totalbytes = os.path.getsize(file_name)
-    connection.sendall(encrypter(totalbytes.encode('UTF-8')))
-    response = decrypter(connection.recv(1)).decode('UTF-8') # wait for ack
+    connection.sendall(encrypter(str(totalbytes).encode())) # sends file size to expect to client
+    response = connection.recv(1).decode()  # wait for ack
 
     if response == 'K':
         file = open(file_name, 'rb')  # opens file and reads it in byte form
         buffer = file.read(DEFAULT_BUFF)  # read BUF LEN bytes from file to buffer
         while buffer:
-            connection.sendall(buffer)
+            connection.sendall(encrypter(buffer))  # encrypt buff and send
             buffer = file.read(DEFAULT_BUFF)  # read next BUF LEN bytes
         file.close()
-    response = connection.recv(1).decode('UTF-8')
+    response = connection.recv(1).decode()
     if response == 'K':
         print('File uploaded successfully')
 

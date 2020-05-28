@@ -6,12 +6,12 @@ from encryption import encrypter, decrypter, init_key, init_iv
 
 
 def ping():
-    first = "ping\n"
+    first = "ping\n".encode()
     first = encrypter(first)
     connection.sendall(first)
     while True:
         line = sys.stdin.readline()
-        encrypted = encrypter(line)
+        encrypted = encrypter(line.encode())
         connection.sendall(encrypted)
         recved = connection.recv(128).strip(b'\00')
         decryp = decrypter(recved)
