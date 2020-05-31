@@ -3,6 +3,7 @@ from _socket import MSG_WAITALL
 from encryption import decrypter, encrypter
 
 DEFAULT_BUFF = 128  # goto buffer size
+MAX_READ = 112
 
 
 def send(file_name, connection):  # send files to client
@@ -18,10 +19,12 @@ def send(file_name, connection):  # send files to client
 
     if response == 'K':
         file = open(file_name, 'rb')  # opens file and reads it in byte form
-        buffer = file.read(DEFAULT_BUFF)  # read BUF LEN bytes from file to buffer
+        # read must be smaller than sent buffer to allow for adding of padding details
+        buffer = file.read(MAX_READ)
         while buffer:
             connection.sendall(encrypter(buffer))  # encrypt buff and send
-            buffer = file.read(DEFAULT_BUFF)  # read next BUF LEN bytes
+            # # read must be smaller than sent buffer to allow for adding of padding details
+            buffer = file.read(MAX_READ)  # read next BUF LEN bytes
         file.close()
     response = connection.recv(1).decode()
     if response == 'K':
