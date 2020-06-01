@@ -35,31 +35,34 @@ def download(file_path, connection):  # upload files from client to server
     #  figures out file name in windows path
     file_name = (file_path[file_path.rfind('\\') + 1:])
 
-    connection.sendall('download\n'.encode('UTF-8'))
+    # notify client to command
+    connection.sendall(encrypter('download\n'.encode()))
 
     connection.sendall(encrypter(file_path.encode('UTF-8')))  # alert client to wanted file
-    response = decrypter(connection.recv(1)).decode('UTF-8')  # wait for client ack
+    response = connection.recv(1).decode('UTF-8')  # wait for client ack
 
     # correct ack if file found
     if response == 'K':
-        str_size = decrypter(connection.recv(16)).decode('UTF-8')  # file size sent by client
+        # strip extra empty bytes and decode
+        str_size = decrypter(connection.recv(16).strip(b'\00')).decode()  # file size sent by client
         # remove any extra /0 from C send value and turns to int
-        size = int(str_size[:str_size.find('\x00')])
+        size = int(str_size)
 
+        # for troubleshooting
         print('file size: ', size)
 
         connection.sendall('K'.encode('UTF-8'))  # no need to encrypt
+
         file = open(file_name, 'wb')  # open file in write binary mode
 
         amt_recv = 0
-        over = size % DEFAULT_BUFF  # finds size of last buffer
         while amt_recv < size:
-            if size - amt_recv < DEFAULT_BUFF:
-                tmpbuff = connection.recv(over, MSG_WAITALL)  # recv remaining bytes
-                file.write(tmpbuff)
-                break
-            buffer = connection.recv(DEFAULT_BUFF, MSG_WAITALL)
-            amt_recv += DEFAULT_BUFF  # increment by BUF LEN/buffer size
-            file.write(buffer)
+            # recv message and strip any extra \00's of unused space
+            buffer = connection.recv(DEFAULT_BUFF).strip(b'\00')
+            decrypted = decrypter(buffer)
+
+            # increment amount recv by size of plaintext
+            amt_recv += len(decrypted)
+            file.write(decrypted)
         file.close()
         print("fill successfully downloaded")

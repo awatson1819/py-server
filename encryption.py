@@ -40,7 +40,8 @@ def encrypter(plaintext):
 
 def decrypter(ciphertext):
     aes = AES.new(key, AES.MODE_CBC, iv)
-    val = unpad(aes.decrypt(ciphertext), AES.block_size)
+    unpadded = aes.decrypt(ciphertext)
+    val = unpad(unpadded, AES.block_size)
     return val
 
 
