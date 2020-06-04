@@ -4,6 +4,8 @@ import select
 import upload
 from encryption import encrypter, decrypter, init_key, init_iv
 
+DEFAULT_BUFF = 128
+
 
 def ping():
     first = "ping\n".encode()
@@ -28,7 +30,7 @@ def shell():
             # checks if value is available for recv
             r, _, _ = select.select([connection], [], [], 0)
             if r:
-                data = connection.recv(128)
+                data = connection.recv(DEFAULT_BUFF)
                 if not data: break  # breaks from while True loop
                 print(data.decode('UTF-8'))
 

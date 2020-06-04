@@ -58,7 +58,8 @@ def download(file_path, connection):  # upload files from client to server
         amt_recv = 0
         while amt_recv < size:
             # recv message and strip any extra \00's of unused space
-            buffer = connection.recv(DEFAULT_BUFF).strip(b'\00')
+            buffer = connection.recv(DEFAULT_BUFF)
+
             decrypted = decrypter(buffer)
 
             # increment amount recv by size of plaintext
