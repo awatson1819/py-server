@@ -41,9 +41,6 @@ def encrypter(plaintext):
 def decrypter(ciphertext):
     aes = AES.new(key, AES.MODE_CBC, iv)
     # for troublingshooting only
-    if(len(ciphertext) < 128):
-        print(len(ciphertext))
-
     decrypted = aes.decrypt(ciphertext)
 
     val = unpad(decrypted, AES.block_size)

@@ -21,18 +21,18 @@ def ping():
 
 
 def shell():
-    connection.sendall('shell\n'.encode('UTF-8'))
+    connection.sendall(encrypter('shell\n'.encode('UTF-8')))
     while True:
         while sys.stdin in select.select([sys.stdin], [], [], 0)[0]:
             shellmsg = sys.stdin.readline()
-            connection.sendall(shellmsg.encode('UTF-8'))
+            connection.sendall(encrypter(shellmsg.encode('UTF-8')))
         else:  # user has not typed anything
             # checks if value is available for recv
             r, _, _ = select.select([connection], [], [], 0)
             if r:
-                data = connection.recv(DEFAULT_BUFF)
+                data = decrypter(connection.recv(DEFAULT_BUFF))
                 if not data: break  # breaks from while True loop
-                print(data.decode('UTF-8'))
+                print(data.decode('UTF-8'), end='')  # print without newline
 
 
 if __name__ == '__main__':
