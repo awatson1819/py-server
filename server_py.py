@@ -5,6 +5,7 @@ import upload
 from encryption import encrypter, decrypter, init_key, init_iv
 
 DEFAULT_BUFF = 128
+MAX_READ = 112
 
 
 def ping():
@@ -26,12 +27,17 @@ def shell():
         while sys.stdin in select.select([sys.stdin], [], [], 0)[0]:
             shellmsg = sys.stdin.readline()
             connection.sendall(encrypter(shellmsg.encode('UTF-8')))
+            if shellmsg == 'exit\n':  # exits out of shell function if exit is called
+                break
         else:  # user has not typed anything
             # checks if value is available for recv
             r, _, _ = select.select([connection], [], [], 0)
             if r:
-                data = decrypter(connection.recv(DEFAULT_BUFF))
-                if not data: break  # breaks from while True loop
+                # client always sends this in package of 10 regardless of length
+                size = connection.recv(10, socket.MSG_WAITALL).strip(b'\00').decode()  # client sends size
+                size = int(size)  # convert sent str to proper int
+                #  wait for specified amount of data
+                data = decrypter(connection.recv(size, socket.MSG_WAITALL))
                 print(data.decode('UTF-8'), end='')  # print without newline
 
 
