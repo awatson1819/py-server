@@ -34,7 +34,7 @@ def shell():
             r, _, _ = select.select([connection], [], [], 0)
             if r:
                 # client always sends this in package of 10 regardless of length
-                size = connection.recv(10, socket.MSG_WAITALL).strip(b'\00').decode()  # client sends size
+                size = connection.recv(4, socket.MSG_WAITALL).strip(b'\00').decode()  # client sends size
                 size = int(size)  # convert sent str to proper int
                 #  wait for specified amount of data
                 data = decrypter(connection.recv(size, socket.MSG_WAITALL))
