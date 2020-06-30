@@ -8,6 +8,7 @@ MAX_READ = 112
 
 def send(file_name, connection):  # send files to client
     connection.sendall(encrypter('send\n'.encode()))  # alert client
+
     print('sent')
     i = file_name.rfind('/')  # find index of last / in file destination
     connection.sendall(encrypter(file_name[i + 1:].encode()))  # send filename without the destination
@@ -33,6 +34,10 @@ def send(file_name, connection):  # send files to client
 
 def download(file_path, connection):  # upload files from client to server
     #  figures out file name in windows path
+    connection.sendall(encrypter("download\n".encode())) # notify client to wanted service
+    # alert client to wanted file
+    connection.sendall(encrypter(file_path.encode()))
+
     file_name = (file_path[file_path.rfind('\\') + 1:])
     file = open(file_name, 'wb')
     while True:
