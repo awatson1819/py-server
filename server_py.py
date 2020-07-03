@@ -33,7 +33,7 @@ def shell():
             # checks if value is available for recv
             r, _, _ = select.select([connection], [], [], 0)
             if r:
-                # client always sends this in package of 10 regardless of length
+                # client always sends this in package of 4 regardless of length
                 size = connection.recv(4, socket.MSG_WAITALL).strip(b'\00').decode()  # client sends size
                 size = int(size)  # convert sent str to proper int
                 #  wait for specified amount of data

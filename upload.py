@@ -11,30 +11,49 @@ def send(file_name, connection):  # send files to client
 
     print('sent')
     i = file_name.rfind('/')  # find index of last / in file destination
-    connection.sendall(encrypter(file_name[i + 1:].encode()))  # send filename without the destination
-    ack = connection.recv(1)  # recive acknowledge
+    encryption = encrypter(file_name[i + 1:].encode())
 
-    totalbytes = os.path.getsize(file_name)
-    connection.sendall(encrypter(str(totalbytes).encode())) # sends file size to expect to client
-    response = connection.recv(1).decode()  # wait for ack
+    # send filename len and name
 
-    if response == 'K':
-        file = open(file_name, 'rb')  # opens file and reads it in byte form
-        # read must be smaller than sent buffer to allow for adding of padding details
-        buffer = file.read(MAX_READ)
-        while buffer:
-            connection.sendall(encrypter(buffer))  # encrypt buff and send
-            # # read must be smaller than sent buffer to allow for adding of padding details
-            buffer = file.read(MAX_READ)  # read next BUF LEN bytes
-        file.close()
-    response = connection.recv(1).decode()
-    if response == 'K':
-        print('File uploaded successfully')
+    length = (str(len(encryption)))
+    length+'\0'  # add trailing end char
+    connection.sendall(length.zfill(4).encode())
+    connection.sendall(encryption)
+
+    f = open(file_name, 'rb')
+
+    buff = f.read(MAX_READ)
+    encrypted = encrypter(buff)  # encrypt read data
+
+    # send size of buffer to be sent as well as padding to ensure length of 4
+    length = (str(len(encrypted)))
+    length + '\0'  # add trailing end char
+    connection.sendall(length.zfill(4).encode())
+    connection.sendall(encrypted)
+
+    # send actual data
+    connection.sendall(encrypted)
+
+    while len(buff) == MAX_READ:  # if read size less than max read than EOF
+        buff = f.read(MAX_READ)
+        encrypted = encrypter(buff)  # encrypt read data
+
+        # send size of buffer to be sent as well as padding to ensure length of 4
+        length = (str(len(encrypted)))
+        length + '\0'  # add trailing end char
+        connection.sendall(length.zfill(4).encode())
+        connection.sendall(encrypted)
+
+        # send actual data
+        connection.sendall(encrypted)
+
+    # close file
+    f.close()
 
 
 def download(file_path, connection):  # upload files from client to server
     #  figures out file name in windows path
-    connection.sendall(encrypter("download\n".encode())) # notify client to wanted service
+    connection.sendall(encrypter("download\n".encode()))  # notify client to wanted service
     # alert client to wanted file
     connection.sendall(encrypter(file_path.encode()))
 
@@ -51,5 +70,3 @@ def download(file_path, connection):  # upload files from client to server
         if len(data) < MAX_READ:
             break
     file.close()
-        
-
